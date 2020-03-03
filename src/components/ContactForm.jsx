@@ -7,39 +7,39 @@ class ContactForm extends Component {
     message: '',
   };
 
-  handleEmailChange = (event) => {
-    const email = event.target.value;
-    this.setState({ email });
+  handleChange = (propName) => (event) => {
+    const newValue = event.target.value;
+    this.setState({ [propName]: newValue });
   }
 
-  handleMessageChange = (event) => {
-    const message = event.target.value;
-    this.setState({ message });
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
   }
-  
+
   render = () => {
     const { email, message } = this.state;
-    return (
-      <Form>
-    <Form.Group controlId="formBasicEmail">
-      <Form.Label>Email address</Form.Label>
-      <Form.Control type="email" placeholder="Enter email" 
-      onChange={this.handleEmailChange} value={email}/>
-      <Form.Text className="text-muted">
-        We'll never share your email with anyone else.
-      </Form.Text>
-    </Form.Group>
 
-    <Form.Group controlId="exampleForm.ControlTextarea1">
-      <Form.Label>Message</Form.Label>
-        <Form.Control as="textarea" rows="3" 
-        onChange={this.handleMessageChange} value={message}
-        />
+    return (
+      <Form onSubmit={this.handleFormSubmit}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" 
+             onChange={this.handleChange('email')} value={email}/>
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Label>Message</Form.Label>
+          <Form.Control as="textarea" rows="3" 
+            onChange={this.handleChange('message')} value={message}/>
         </Form.Group>
         <Button variant="primary" type="submit">
-        Submit
+          Submit
         </Button>
-    </Form>
+      </Form>
     )
   }
 }
