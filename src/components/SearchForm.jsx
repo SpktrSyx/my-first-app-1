@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Form, Button, FormControl } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 
 class SearchForm extends Component {
   state = {
-      search: ''
+      search: '',
+      redirect: false,
   };
 
   handleChange = (propName) => (event) => {
@@ -13,11 +15,16 @@ class SearchForm extends Component {
     
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    this.setState({ redirect: true });
+    // return <Redirect to={`/search/${search}`}/>;
   }
 
   render = () => {
-    const { search } = this.state;
+    const { search, redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`/search/${search}`}/>;
+    }
 
     return (
       <Form inline onSubmit={this.handleFormSubmit}>
