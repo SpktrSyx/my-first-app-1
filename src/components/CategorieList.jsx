@@ -8,7 +8,7 @@ const CategorieList = () =>
     <ListGroup>
       {categories.map( (item, index) =>
         <NavDropdown.Item>
-            <Link to={`categories${index}`}>
+            <Link to={`category/${index}`}>
             {item.name}
             </Link>
         </NavDropdown.Item>
