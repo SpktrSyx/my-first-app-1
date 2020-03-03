@@ -2,11 +2,12 @@ import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import CategorieList from './CategorieList';
+import SearchForm from './SearchForm';
 
 const Header = () =>
   <header>
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">Mon beau blog</Navbar.Brand>
+      <Navbar.Brand href="/">Mon beau blog</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -15,10 +16,7 @@ const Header = () =>
           <Navbar.Text><Link to="/pouet">404</Link></Navbar.Text>
           <CategorieList />            
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
+        <SearchForm />
       </Navbar.Collapse>
     </Navbar>
   </header>

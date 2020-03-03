@@ -6,3 +6,4 @@ export { default as Sidebar } from './Sidebar';
 export { default as Layout } from './Layout';
 export { default as ContactForm } from './ContactForm';
 export { default as CategorieList } from './CategorieList';
+export { default as ConatctForm } from './ContactForm';
