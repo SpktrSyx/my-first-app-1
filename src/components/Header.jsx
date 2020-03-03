@@ -1,6 +1,7 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, NavbarBrand } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CategorieList from './CategorieList';
 
 const Header = () =>
   <header>
@@ -12,13 +13,7 @@ const Header = () =>
           <Navbar.Text><Link to="/">Home</Link></Navbar.Text>
           <Navbar.Text><Link to="/contact">Contact</Link></Navbar.Text>
           <Navbar.Text><Link to="/pouet">404</Link></Navbar.Text>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-          </NavDropdown>
+          <CategorieList />            
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
